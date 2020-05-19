@@ -2,7 +2,7 @@
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
-
+Plug 'takac/vim-hardtime'
 
 " nerdtree
 Plug 'scrooloose/nerdtree'
@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " source code management
+Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'paul-nechifor/vim-svn-blame'
 
@@ -22,6 +23,9 @@ Plug 'paul-nechifor/vim-svn-blame'
 Plug 'neovim/nvim-lsp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-lsp'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-scripts/c.vim'
+" toggle comments
 Plug 'scrooloose/nerdcommenter'
 " cmake support
 Plug 'ilyachur/cmake4vim'
@@ -29,17 +33,35 @@ Plug 'ilyachur/cmake4vim'
 Plug 'plasticboy/vim-markdown'
 
 " scheme
-Plug 'tomasr/molokai'
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
 " Initialize plugin system
 call plug#end()
+
+""*****************************************************************************
+"" HARD MODE
+""*****************************************************************************
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
+
+let g:list_of_normal_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_disabled_keys = []
+
+nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
+
+""*****************************************************************************
+"" MISC
+""*****************************************************************************
 
 " init completion engine
 let g:deoplete#enable_at_startup = 1
 " init git blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
+" status line configuration
+let g:airline_powerline_fonts = 1
 
 " Reloads vimrc after saving but keep cursor position
 if !exists('*ReloadVimrc')
@@ -51,7 +73,9 @@ if !exists('*ReloadVimrc')
 endif
 autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
 
-" nerd tree configs
+""*****************************************************************************
+"" NERDTREE CONFIGURATION
+""*****************************************************************************
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeGitStatusWithFlags = 1
 
@@ -77,11 +101,16 @@ function! SyncTree()
 endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
+" toogle nerdtree
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
-" language servers
-lua require 'nvim_lsp'.clangd.setup{}
+""*****************************************************************************
+"" LSP CONFIGURATION
+""*****************************************************************************
+lua require 'nvim_lsp'.clangd.setup{ init_options = { highlight = { lsRanges = true; } } }
 autocmd Filetype cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
+" lsp bindings
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -99,9 +128,12 @@ let g:vim_markdown_folding_disabled = 1
 " general configuration
 set spell spelllang=en_us
 set spellcapcheck=""
-set number
+set number relativenumber
 set cursorline
 set laststatus=2
+set colorcolumn=80
+" copy/paste/cut
+set clipboard=unnamed,unnamedplus
 " enable mouse support
 set mouse=a
 " enable undo file to provide undo information even if buffer is closed
@@ -119,14 +151,22 @@ autocmd FileType python setlocal noexpandtab
 " color scheme
 syntax on
 colorscheme monokai
-
-"set background=dark
-"set background=light
-"let g:gruvbox_contrast_light="hard"
-"let g:gruvbox_italic=1
-"let g:gruvbox_invert_signs=0
-"let g:gruvbox_improved_strings=0
-"let g:gruvbox_improved_warnings=1
-"let g:gruvbox_undercurl=1
-"let g:gruvbox_contrast_dark="hard"
 "colorscheme gruvbox
+set background=dark termguicolors
+
+"*****************************************************************************
+"" Abbreviations
+"*****************************************************************************
+" clean search highlight
+nnoremap <silent> <leader><space> :noh<cr>
+" no one is really happy until you have this shortcuts
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
