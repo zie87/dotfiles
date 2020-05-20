@@ -31,7 +31,7 @@ rm -r tmpdotfiles
 
 # Tools
 
-## 
+## Alacritty
 
 [Alacritty](https://github.com/alacritty/alacritty) installation
 ```sh
@@ -53,7 +53,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 [tmux](https://github.com/tmux/tmux/wiki) installation
 ```sh
 sudo pacman -S tmux
+sudo pacman -S powerline powerline-fonts
 ```
+
+
 
 install tmux [plugin manager](https://github.com/tmux-plugins/tpm)
 ```sh
@@ -79,3 +82,4 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 - [vim config generator](https://vim-bootstrap.com/)
 - [vim plugin list](https://vimawesome.com/)
 - [tmux](https://tmuxcheatsheet.com/) cheat sheet
+- [awesome tmux](https://github.com/rothgar/awesome-tmux)

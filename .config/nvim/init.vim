@@ -35,7 +35,7 @@ Plug 'plasticboy/vim-markdown'
 " scheme
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
-
+Plug 'chriskempson/base16-vim'
 " Initialize plugin system
 call plug#end()
 
@@ -153,6 +153,7 @@ autocmd FileType python setlocal noexpandtab
 syntax on
 colorscheme monokai
 "colorscheme gruvbox
+"colorscheme base16-tomorrow-night
 set background=dark termguicolors
 
 "*****************************************************************************
