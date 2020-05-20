@@ -100,5 +100,9 @@ alias ppsspp="PPSSPPQt"
 
 alias zshconfig="nvim ~/.zshrc"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
+alias tmuxconfig="nvim ~/.tmux.conf"
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# auto start tmux
+if [ "$TMUX" = "" ]; then tmux; fi
