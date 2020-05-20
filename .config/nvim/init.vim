@@ -3,7 +3,8 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'takac/vim-hardtime'
-
+" rgb-hex colorizer
+Plug 'norcalli/nvim-colorizer.lua'
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -28,10 +29,9 @@ Plug 'haorenW1025/completion-nvim'
 Plug 'haorenW1025/diagnostic-nvim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'vim-scripts/c.vim'
+Plug 'rust-lang/rust.vim'
 " toggle comments
 Plug 'scrooloose/nerdcommenter'
-" cmake support
-"Plug 'ilyachur/cmake4vim'
 " markdown support
 Plug 'plasticboy/vim-markdown'
 
@@ -58,16 +58,9 @@ nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
 ""*****************************************************************************
 "" MISC
 ""*****************************************************************************
-
-
-"let g:C_Ctrl_j = 'off'
-
-" init completion engine
-"let g:deoplete#enable_at_startup = 1
-
-
-
-
+" init colorizer
+set termguicolors
+lua require'colorizer'.setup()
 
 " init git blamer
 let g:blamer_enabled = 1
