@@ -28,6 +28,7 @@ set noshowmode                          " We don't need to see things like -- IN
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set colorcolumn=80                      " show column
 set undofile                            " enable undo after restart
+set completeopt=menuone,noinsert,noselect
 set termguicolors
 
 " enable tabs for make files and python

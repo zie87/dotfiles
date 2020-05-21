@@ -1,3 +1,5 @@
+
+" banners a created with https://manytools.org/hacker-tools/ascii-banner/
 let g:startify_ascii_doom = [
             \ " .S_sSSs      sSSs    sSSs_sSSs     .S    S.    .S   .S_SsS_S. ",  
             \ ".SS~YS%%b    d%%SP   d%%SP~YS%%b   .SS    SS.  .SS  .SS~S*S~SS.",  
@@ -40,6 +42,19 @@ let g:startify_ascii_bloody = [
             \ "          ░    ░  ░    ░ ░        ░   ░         ░    ", 
             \ ]
 
-let g:startify_custom_header = g:startify_ascii_bloody
+
+let g:startify_ascii_corps = [
+            \ " ███▄▄▄▄      ▄████████  ▄██████▄   ▄█    █▄   ▄█    ▄▄▄▄███▄▄▄▄   ", 
+            \ " ███▀▀▀██▄   ███    ███ ███    ███ ███    ███ ███  ▄██▀▀▀███▀▀▀██▄ ", 
+            \ " ███   ███   ███    █▀  ███    ███ ███    ███ ███▌ ███   ███   ███ ", 
+            \ " ███   ███  ▄███▄▄▄     ███    ███ ███    ███ ███▌ ███   ███   ███ ", 
+            \ " ███   ███ ▀▀███▀▀▀     ███    ███ ███    ███ ███▌ ███   ███   ███ ", 
+            \ " ███   ███   ███    █▄  ███    ███ ███    ███ ███  ███   ███   ███ ", 
+            \ " ███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███ ", 
+            \ "  ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀  ", 
+            \ ]                                        
+
+
+let g:startify_custom_header = g:startify_ascii_corps
 
 
