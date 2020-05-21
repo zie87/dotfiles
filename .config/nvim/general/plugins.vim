@@ -20,6 +20,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'paul-nechifor/vim-svn-blame'
 
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+
 " neovim-lsp
 "Plug 'neovim/nvim-lsp'
 "Plug 'haorenW1025/completion-nvim'
