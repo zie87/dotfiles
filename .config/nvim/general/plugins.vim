@@ -21,8 +21,10 @@ Plug 'APZelos/blamer.nvim'
 Plug 'paul-nechifor/vim-svn-blame'
 
 " fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
 Plug 'airblade/vim-rooter'
 
 " neovim-lsp

@@ -64,9 +64,15 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker tmux rust fzf)
+plugins=(git docker tmux rust)
 
 source $ZSH/oh-my-zsh.sh
+
+# skim zsh plugins 
+[[ $- == *i* ]] && source "/usr/share/skim/completion.zsh" 2> /dev/null
+source "/usr/share/skim/key-bindings.zsh"
+
+export SKIM_DEFAULT_COMMAND='fd --type f || git ls-tree -r --name-only HEAD || rg --files || find .'
 
 # User configuration
 

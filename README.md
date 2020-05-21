@@ -32,7 +32,7 @@ rm -r tmpdotfiles
 # Tools
 
 ```sh
-sudo pacman -S fzf fd ripgrep
+sudo pacman -S bat skim fd ripgrep
 sudo pacman -S powerline powerline-fonts
 yay -S universal-ctags-git
 ```
