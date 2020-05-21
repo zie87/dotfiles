@@ -2,27 +2,26 @@
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
+" helps to learn do it right
 Plug 'takac/vim-hardtime'
+" Start Screen
+Plug 'mhinz/vim-startify'
 " rgb-hex colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
-
 " nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-
 " status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 " source code management
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'paul-nechifor/vim-svn-blame'
-
 " language and completion settings
 Plug 'neovim/nvim-lsp'
 Plug 'haorenW1025/completion-nvim'
@@ -34,7 +33,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 " markdown support
 Plug 'plasticboy/vim-markdown'
-
 " scheme
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
@@ -58,6 +56,26 @@ nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
 ""*****************************************************************************
 "" MISC
 ""*****************************************************************************
+let g:startify_ascii = [
+            \ " .S_sSSs      sSSs    sSSs_sSSs     .S    S.    .S   .S_SsS_S. ",  
+            \ ".SS~YS%%b    d%%SP   d%%SP~YS%%b   .SS    SS.  .SS  .SS~S*S~SS.",  
+            \ "S%S   `S%b  d%S'    d%S'     `S%b  S%S    S%S  S%S  S%S `Y' S%S",  
+            \ "S%S    S%S  S%S     S%S       S%S  S%S    S%S  S%S  S%S     S%S",  
+            \ "S%S    S&S  S&S     S&S       S&S  S&S    S%S  S&S  S%S     S%S",  
+            \ "S&S    S&S  S&S_Ss  S&S       S&S  S&S    S&S  S&S  S&S     S&S",  
+            \ "S&S    S&S  S&S~SP  S&S       S&S  S&S    S&S  S&S  S&S     S&S",  
+            \ "S&S    S&S  S&S     S&S       S&S  S&S    S&S  S&S  S&S     S&S",  
+            \ "S*S    S*S  S*b     S*b       d*S  S*b    S*S  S*S  S*S     S*S",  
+            \ "S*S    S*S  S*S.    S*S.     .S*S  S*S.   S*S  S*S  S*S     S*S",  
+            \ "S*S    S*S   SSSbs   SSSbs_sdSSS    SSSbs_S*S  S*S  S*S     S*S",  
+            \ "S*S    SSS    YSSP    YSSP~YSSY      YSSP~SSS  S*S  SSS     S*S",  
+            \ "SP                                             SP           SP ",  
+            \ "Y                                              Y            Y  ",  
+            \ ]
+
+let g:startify_custom_header = map(g:startify_ascii, '"     ".v:val')
+
+
 " init colorizer
 set termguicolors
 lua require'colorizer'.setup()
@@ -86,7 +104,7 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeHighlightCursorline = 1
 " open nerdtree if no file or a directory was given
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " close nerdtree when it is the last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -142,13 +160,18 @@ nnoremap <silent> <Leader>td    <cmd>lua vim.lsp.buf.type_definition()<CR>
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
 
-" general configuration
+" spell checks
 set spell spelllang=en_us
 set spellcapcheck=""
+
+" general configuration
 set number relativenumber
 set cursorline
 set laststatus=2
 set colorcolumn=80
+
+" Required to keep multiple buffers open multiple buffers
+set hidden
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
