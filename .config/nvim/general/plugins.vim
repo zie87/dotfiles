@@ -17,7 +17,7 @@ Plug 'paul-nechifor/vim-svn-blame'
 
 " skim
 Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-Plug 'lotabout/skim.vim'
+Plug 'zie87/skim.vim'
 Plug 'airblade/vim-rooter'
 
 " coc
