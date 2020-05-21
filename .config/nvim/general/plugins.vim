@@ -10,25 +10,23 @@ Plug 'christoomey/vim-tmux-navigator'
 " status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" See what keys do like in emacs
+Plug 'liuchengxu/vim-which-key'
 " source code management
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'paul-nechifor/vim-svn-blame'
-
 " skim
 Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'zie87/skim.vim'
 Plug 'airblade/vim-rooter'
-
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-
+" languages
 Plug 'rust-lang/rust.vim'
 " toggle comments
 Plug 'scrooloose/nerdcommenter'
-" markdown support
-Plug 'plasticboy/vim-markdown'
 " scheme
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
