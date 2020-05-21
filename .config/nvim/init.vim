@@ -40,6 +40,12 @@ Plug 'chriskempson/base16-vim'
 " Initialize plugin system
 call plug#end()
 
+source $HOME/.config/nvim/plug-config/start-screen.vim
+source $HOME/.config/nvim/plug-config/nerdtree.vim
+source $HOME/.config/nvim/plug-config/lsp.vim
+
+
+
 ""*****************************************************************************
 "" HARD MODE
 ""*****************************************************************************
@@ -56,25 +62,6 @@ nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
 ""*****************************************************************************
 "" MISC
 ""*****************************************************************************
-let g:startify_ascii = [
-            \ " .S_sSSs      sSSs    sSSs_sSSs     .S    S.    .S   .S_SsS_S. ",  
-            \ ".SS~YS%%b    d%%SP   d%%SP~YS%%b   .SS    SS.  .SS  .SS~S*S~SS.",  
-            \ "S%S   `S%b  d%S'    d%S'     `S%b  S%S    S%S  S%S  S%S `Y' S%S",  
-            \ "S%S    S%S  S%S     S%S       S%S  S%S    S%S  S%S  S%S     S%S",  
-            \ "S%S    S&S  S&S     S&S       S&S  S&S    S%S  S&S  S%S     S%S",  
-            \ "S&S    S&S  S&S_Ss  S&S       S&S  S&S    S&S  S&S  S&S     S&S",  
-            \ "S&S    S&S  S&S~SP  S&S       S&S  S&S    S&S  S&S  S&S     S&S",  
-            \ "S&S    S&S  S&S     S&S       S&S  S&S    S&S  S&S  S&S     S&S",  
-            \ "S*S    S*S  S*b     S*b       d*S  S*b    S*S  S*S  S*S     S*S",  
-            \ "S*S    S*S  S*S.    S*S.     .S*S  S*S.   S*S  S*S  S*S     S*S",  
-            \ "S*S    S*S   SSSbs   SSSbs_sdSSS    SSSbs_S*S  S*S  S*S     S*S",  
-            \ "S*S    SSS    YSSP    YSSP~YSSY      YSSP~SSS  S*S  SSS     S*S",  
-            \ "SP                                             SP           SP ",  
-            \ "Y                                              Y            Y  ",  
-            \ ]
-
-let g:startify_custom_header = map(g:startify_ascii, '"     ".v:val')
-
 
 " init colorizer
 set termguicolors
@@ -95,66 +82,6 @@ if !exists('*ReloadVimrc')
    endfun
 endif
 autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
-
-""*****************************************************************************
-"" NERDTREE CONFIGURATION
-""*****************************************************************************
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeHighlightCursorline = 1
-" open nerdtree if no file or a directory was given
-autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" close nerdtree when it is the last buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" toogle nerdtree
-map <F3> :NERDTreeToggle<CR>
-
-""*****************************************************************************
-"" LSP CONFIGURATION
-""*****************************************************************************
-
-let g:completion_timer_cycle = 100 "default value is 80
-let g:completion_chain_complete_list = {
-    \ 'cpp':[ {'complete_items': ['lsp']},
-    \         {'complete_items': ['snippet']},
-    \         {'mode': '<c-p>'},
-    \         {'mode': '<c-n>'}],
-    \ 'default':[ {'complete_items': ['lsp']},
-    \             {'mode': '<c-p>'},
-    \             {'mode': '<c-n>'}], 
-    \}
-
-let g:diagnostic_insert_delay = 1
-
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
-
-lua << EOF
-local on_attach_vim = function()
-  require'completion'.on_attach()
-  require'diagnostic'.on_attach()
-end
-require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
-require'nvim_lsp'.rust_analyzer.setup{on_attach=on_attach_vim}
-require'nvim_lsp'.sumneko_lua.setup{ 
-    cmd = { "/home/zie/.cache/nvim/nvim_lsp/sumneko_lua/lua-language-server/bin/Linux/lua-language-server", "-E", 
-            "/home/zie/.cache/nvim/nvim_lsp/sumneko_lua/lua-language-server/main.lua" },
-    install_dir = "/home/zie/.cache/nvim/nvim_lsp/sumneko_lua",
-    is_installed = true,
-    on_attach=on_attach_vim}
-EOF
-
-" lsp bindings
-
-nnoremap <silent> <Leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <Leader>gD    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <Leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> <Leader>h     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <Leader>i     <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <Leader>s     <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <Leader>td    <cmd>lua vim.lsp.buf.type_definition()<CR>
 
 " markdown
 let g:vim_markdown_frontmatter = 1
