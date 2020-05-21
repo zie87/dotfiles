@@ -13,8 +13,9 @@ source $HOME/.config/nvim/general/keys.vim
 " PLUGIN SETTINGS
 " *****************************************************************************
 source $HOME/.config/nvim/plug-config/start-screen.vim
-source $HOME/.config/nvim/plug-config/nerdtree.vim
-source $HOME/.config/nvim/plug-config/lsp.vim
+"source $HOME/.config/nvim/plug-config/nerdtree.vim
+"source $HOME/.config/nvim/plug-config/lsp.vim
+source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/hardtime.vim
 source $HOME/.config/nvim/plug-config/airline.vim
 

@@ -8,10 +8,10 @@ Plug 'norcalli/nvim-colorizer.lua'
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
 " nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'ryanoasis/vim-devicons'
 " status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -19,11 +19,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'paul-nechifor/vim-svn-blame'
-" language and completion settings
-Plug 'neovim/nvim-lsp'
-Plug 'haorenW1025/completion-nvim'
-Plug 'haorenW1025/diagnostic-nvim'
-Plug 'octol/vim-cpp-enhanced-highlight'
+
+" neovim-lsp
+"Plug 'neovim/nvim-lsp'
+"Plug 'haorenW1025/completion-nvim'
+"Plug 'haorenW1025/diagnostic-nvim'
+
+" coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+"Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'vim-scripts/c.vim'
 Plug 'rust-lang/rust.vim'
 " toggle comments
