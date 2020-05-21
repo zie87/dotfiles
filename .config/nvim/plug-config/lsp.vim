@@ -35,6 +35,8 @@ EOF
 
 " lsp bindings
 
+nnoremap <silent> <leader>ld    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+
 nnoremap <silent> <Leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <Leader>gD    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <Leader>gr    <cmd>lua vim.lsp.buf.references()<CR>
