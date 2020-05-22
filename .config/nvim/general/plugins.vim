@@ -24,6 +24,8 @@ Plug 'zie87/skim.vim'
 Plug 'airblade/vim-rooter'
 " comments
 Plug 'tpope/vim-commentary'
+" A bunch of useful language related snippets (ultisnips is the engine).
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'

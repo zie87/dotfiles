@@ -82,11 +82,11 @@ export SKIM_DEFAULT_COMMAND='fd --type f || git ls-tree -r --name-only HEAD || r
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
+ # if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='nvim'
- else
-   export EDITOR='nvim-qt'
- fi
+ # else
+   # export EDITOR='nvim-qt'
+ # fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

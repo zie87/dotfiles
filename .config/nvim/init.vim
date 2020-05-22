@@ -19,7 +19,7 @@ source $HOME/.config/nvim/plug-config/skim.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/cmake.vim
 source $HOME/.config/nvim/plug-config/debugger.vim
-
+source $HOME/.config/nvim/plug-config/snippets.vim
 
 source $HOME/.config/nvim/plug-config/whichkey.vim
 
@@ -47,7 +47,8 @@ autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
- no one is really happy until you have this shortcuts
+" no one is really happy until you have this shortcuts
+
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
