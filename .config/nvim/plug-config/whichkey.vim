@@ -97,17 +97,18 @@ let g:which_key_map['s'] = {
       \ }
 
 "  ----------------------------------------------------------------------------
-"  BUFFER CONFIGURATION
+"  BUFFER CONFIGURATION (needs vim-bufkil)
 "  ----------------------------------------------------------------------------
 let g:which_key_map['b'] = {
       \ 'name' : '+buffer' ,
-      \ 'd' : ['bd'        , 'delete-buffer']   ,
+      \ 'u' : ['BUN'       , 'unload-buffer']   ,
+      \ 'd' : ['BD'        , 'delete-buffer']   ,
+      \ 'w' : ['BW'        , 'wipeout-buffer']  ,
       \ 'f' : ['bfirst'    , 'first-buffer']    ,
-      \ 'h' : ['Startify'  , 'home-buffer']     ,
       \ 'l' : ['blast'     , 'last-buffer']     ,
-      \ 'n' : ['bnext'     , 'next-buffer']     ,
-      \ 'p' : ['bprevious' , 'previous-buffer'] ,
-      \ '?' : ['Buffers'   , 'skim-buffer']      ,
+      \ 'n' : ['BF'        , 'next-buffer']     ,
+      \ 'p' : ['BB'        , 'previous-buffer'] ,
+      \ '?' : ['Buffers'   , 'skim-buffer']     ,
       \ }
 
 "  ----------------------------------------------------------------------------

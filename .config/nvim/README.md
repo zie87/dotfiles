@@ -7,6 +7,4 @@
 
 ## feature
 * debugging
-* cmake integration
-    - list and goto warnings
-    - list and goto errors
+    * [vimspector](https://github.com/puremourning/vimspector) needs half of vs-code and doesn't work well with neovim

@@ -7,6 +7,8 @@ Plug 'mhinz/vim-startify'
 Plug 'norcalli/nvim-colorizer.lua'
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
+" optimize buffer handling
+Plug 'qpkorr/vim-bufkill'
 " status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -25,6 +27,8 @@ Plug 'tpope/vim-commentary'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+" debugger
+"Plug 'puremourning/vimspector'
 " c/c++
 Plug 'cdelledonne/vim-cmake'
 " rust
