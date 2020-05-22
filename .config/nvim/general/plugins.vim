@@ -25,7 +25,9 @@ Plug 'tpope/vim-commentary'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-" languages
+" c/c++
+Plug 'cdelledonne/vim-cmake'
+" rust
 Plug 'rust-lang/rust.vim'
 " scheme
 Plug 'crusoexia/vim-monokai'

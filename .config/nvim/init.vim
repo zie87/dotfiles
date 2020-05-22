@@ -17,6 +17,7 @@ source $HOME/.config/nvim/plug-config/hardtime.vim
 source $HOME/.config/nvim/plug-config/airline.vim
 source $HOME/.config/nvim/plug-config/skim.vim
 source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/cmake.vim
 
 source $HOME/.config/nvim/plug-config/whichkey.vim
 
