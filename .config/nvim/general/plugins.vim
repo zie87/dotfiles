@@ -20,13 +20,13 @@ Plug 'paul-nechifor/vim-svn-blame'
 Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'zie87/skim.vim'
 Plug 'airblade/vim-rooter'
+" comments
+Plug 'tpope/vim-commentary'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 " languages
 Plug 'rust-lang/rust.vim'
-" toggle comments
-Plug 'scrooloose/nerdcommenter'
 " scheme
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'

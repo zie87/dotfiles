@@ -56,5 +56,26 @@ let g:startify_ascii_corps = [
 
 
 let g:startify_custom_header = g:startify_ascii_corps
+let g:startify_session_dir = '~/.config/nvim/session'
 
+" detect current dir based on cvs system
+let g:startify_change_to_vcs_root = 1
+" Automatically Update Sessions
+let g:startify_session_persistence = 1
 
+let g:startify_lists = [
+        \ { 'type': 'files',     'header':                ['   Files']            },
+        \ { 'type': 'dir',       'header':                ['   Current Dir '. getcwd()] },
+        \ { 'type': 'sessions',  'header':                ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header':                ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header':                ['   Commands']       },
+        \ ]
+  "     \ { 'type': function('s:gitModified'),  'header': ['   Git modified']},
+  "     \ { 'type': function('s:gitUntracked'), 'header': ['   Git untracked']},
+
+let g:startify_bookmarks = [
+            \ { 'z': '~/.zshrc' },
+            \ { 't': '~/.tmux.conf' },
+            \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'a': '~/.config/alacritty/alacritty.yml'},
+            \ ]
