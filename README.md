@@ -59,6 +59,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 [tmux](https://github.com/tmux/tmux/wiki) installation
 ```sh
 sudo pacman -S tmux
+yay -S tmuxinator
 ```
 
 install tmux [plugin manager](https://github.com/tmux-plugins/tpm)

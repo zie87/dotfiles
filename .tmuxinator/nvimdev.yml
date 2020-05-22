@@ -1,0 +1,10 @@
+name: nvimdev
+root: ~/
+
+windows:
+    - editor:
+        layout: main-vertical
+        panes:
+            - nvim
+            - # empty
+    - console: # empty
