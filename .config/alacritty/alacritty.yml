@@ -21,6 +21,32 @@ font:
 
 # predefined colors at: https://github.com/alacritty/alacritty/wiki/Color-schemes
 schemes:
+  Nord: &nord
+    primary:
+      background: '#2E3440'
+      foreground: '#D8DEE9'
+    cursor:
+      text:   '#2E3440'
+      cursor: '#D8DEE9'
+    normal:
+      black:   '#3B4252'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#88C0D0'
+      white:   '#E5E9F0'
+    bright:
+      black:   '#4C566A'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#8FBCBB'
+      white:   '#ECEFF4'
+
 # KDE Breeze (Ported from Konsole)
   Breeze: &breeze
     # Default colors
@@ -28,43 +54,43 @@ schemes:
       background: '#232627'
       foreground: '#fcfcfc'
   
-      dim_foreground: '#eff0f1'
+      dim_foreground:    '#eff0f1'
       bright_foreground: '#ffffff'
-      dim_background: '#31363b'
+      dim_background:    '#31363b'
       bright_background: '#000000'
   
     # Normal colors
     normal:
-      black: '#232627'
-      red: '#ed1515'
-      green: '#11d116'
-      yellow: '#f67400'
-      blue: '#1d99f3'
+      black:   '#232627'
+      red:     '#ed1515'
+      green:   '#11d116'
+      yellow:  '#f67400'
+      blue:    '#1d99f3'
       magenta: '#9b59b6'
-      cyan: '#1abc9c'
-      white: '#fcfcfc'
+      cyan:    '#1abc9c'
+      white:   '#fcfcfc'
   
     # Bright colors
     bright:
-      black: '#7f8c8d'
-      red: '#c0392b'
-      green: '#1cdc9a'
-      yellow: '#fdbc4b'
-      blue: '#3daee9'
+      black:   '#7f8c8d'
+      red:     '#c0392b'
+      green:   '#1cdc9a'
+      yellow:  '#fdbc4b'
+      blue:    '#3daee9'
       magenta: '#8e44ad'
-      cyan: '#16a085'
-      white: '#ffffff'
+      cyan:    '#16a085'
+      white:   '#ffffff'
   
     # Dim colors
     dim:
-      black: '#31363b'
-      red: '#783228'
-      green: '#17a262'
-      yellow: '#b65619'
-      blue: '#1b668f'
+      black:   '#31363b'
+      red:     '#783228'
+      green:   '#17a262'
+      yellow:  '#b65619'
+      blue:    '#1b668f'
       magenta: '#614a73'
-      cyan: '#186c60'
-      white: '#63686d'
+      cyan:    '#186c60'
+      white:   '#63686d'
 
   # Colors (Tomorrow Night)  
   TomorrowNight: &tomorrow
@@ -75,7 +101,7 @@ schemes:
   
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-      text: '#1d1f21'
+      text:   '#1d1f21'
       cursor: '#ffffff'
   
     # Normal colors

@@ -132,7 +132,28 @@ let g:which_key_map['w'] = {
       \ '=' : ['<C-W>='     , 'balance-window']        ,
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'skim-window']            ,
+      \ '?' : ['Windows'    , 'skim-window']           ,
       \ }
 
+" remove old vimwiki mappings
+:nnoremap <leader>vw <Plug>VimwikiIndex
+:nnoremap <leader>vW <Plug>VimwikiTabIndex
+:nnoremap <leader>vs <Plug>VimwikiUISelect
+:nnoremap <leader>vi <Plug>VimwikiDiaryIndex
+:nnoremap <leader>vd <Plug>VimwikiMakeDiaryNote
+:nnoremap <leader>vD <Plug>VimwikiTabMakeDiaryNote
+
+:nnoremap <leader>vdy <Plug>VimwikiMakeYesterdayDiaryNote
+:nnoremap <leader>vdt <Plug>VimwikiMakeTomorrowDiaryNote
+
+
+let g:which_key_map['v'] = {
+      \ 'name' : '+wiki' ,
+      \ 'w' : ['<Plug>VimwikiIndex'             , 'open wiki-index']          ,
+      \ 'W' : ['<Plug>VimwikiTabIndex'          , 'open wiki-index (new tab)'],
+      \ 's' : ['<Plug>VimwikiUISelect'          , 'select wiki']              ,
+      \ 'i' : ['<Plug>VimwikiDiaryIndex'        , 'open diary-index']         ,
+      \ 'd' : ['<Plug>VimwikiMakeDiaryNote'     , 'make diary note']          ,
+      \ 'D' : ['<Plug>VimwikiTabMakeDiaryNote'  , 'open wiki-index (new tab)']     ,
+      \ }
 

@@ -35,6 +35,8 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'cdelledonne/vim-cmake'
 " rust
 Plug 'rust-lang/rust.vim'
+" vim wiki
+Plug 'vimwiki/vimwiki'
 " scheme
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'

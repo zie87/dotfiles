@@ -20,6 +20,7 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/cmake.vim
 source $HOME/.config/nvim/plug-config/debugger.vim
 source $HOME/.config/nvim/plug-config/snippets.vim
+source $HOME/.config/nvim/plug-config/wiki.vim
 
 source $HOME/.config/nvim/plug-config/whichkey.vim
 
