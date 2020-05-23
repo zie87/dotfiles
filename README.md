@@ -29,8 +29,19 @@ rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 ```
 
-# Tools
+# AwesomeWM
 
+[AwesomeWM](https://github.com/awesomeWM/awesome.git) is based on [Floppy](https://github.com/manilarome/the-glorious-dotfiles)
+
+```sh
+sudo pacman -S nm-connection-editor blueman
+sudo pacman -S pamac-gtk pamac-snap-plugin pamac-flatpak-plugin  pamac-tray-appindicator
+
+yay -S awesome-git rofi-git picom-tryone-git
+sudo pacman -S awesome-freedesktop
+```
+
+# Tools
 ```sh
 sudo pacman -S bat skim fd ripgrep
 sudo pacman -S powerline powerline-fonts
