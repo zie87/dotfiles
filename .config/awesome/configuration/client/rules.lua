@@ -175,8 +175,9 @@ ruled.client.connect_signal(
 			rule_any   = {  
 				class = {
 					"dolphin",
-					"ark",
+                    "Caja",
 					"Nemo",
+                    "ark",
 					"File-roller"
 				}
 			},
@@ -247,7 +248,9 @@ ruled.client.connect_signal(
 			rule_any   = {  
 				class = {
 					"VirtualBox Manage",
-					"VirtualBox Machine"
+					"VirtualBox Machine",
+                    "virt-manager",
+                    "Virt-manager"
 				}
 			},
 			properties = { 

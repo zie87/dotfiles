@@ -18,9 +18,9 @@ MY_PATH="$(dirname "${0}")"
 HIST_FILE="${MY_PATH}/history.txt"
 
 OPENER=xdg-open
-TERM_EMU=kitty
+TERM_EMU=alacritty
 TEXT_EDITOR=${EDITOR}
-FILE_MANAGER=dolphin
+FILE_MANAGER=caja
 BLUETOOTH_SEND=blueman-sendto
 
 CUR_DIR=$PWD
