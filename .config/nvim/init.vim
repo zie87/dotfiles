@@ -16,11 +16,15 @@ source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/hardtime.vim
 source $HOME/.config/nvim/plug-config/airline.vim
 source $HOME/.config/nvim/plug-config/skim.vim
-source $HOME/.config/nvim/plug-config/coc.vim
-source $HOME/.config/nvim/plug-config/cmake.vim
-source $HOME/.config/nvim/plug-config/debugger.vim
-source $HOME/.config/nvim/plug-config/snippets.vim
-source $HOME/.config/nvim/plug-config/wiki.vim
+"source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/lsp.vim
+source $HOME/.config/nvim/plug-config/clang-format.vim
+source $HOME/.config/nvim/plug-config/nerdtree.vim
+source $HOME/.config/nvim/plug-config/ranger.vim
+"source $HOME/.config/nvim/plug-config/cmake.vim
+"source $HOME/.config/nvim/plug-config/debugger.vim
+"source $HOME/.config/nvim/plug-config/snippets.vim
+"source $HOME/.config/nvim/plug-config/wiki.vim
 
 source $HOME/.config/nvim/plug-config/whichkey.vim
 
@@ -29,7 +33,7 @@ source $HOME/.config/nvim/plug-config/whichkey.vim
 ""*****************************************************************************
 
 " init colorizer
-lua require'colorizer'.setup()
+lua require 'colorizer'.setup()
 
 " init git blamer
 let g:blamer_enabled = 1

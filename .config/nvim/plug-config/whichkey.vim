@@ -15,55 +15,56 @@ highlight default link WhichKeyDesc      Function
 
 
 " Single mappings
-let g:which_key_map['/'] = [ ':Commentary'  , 'comment' ]
+"let g:which_key_map['/'] = [ ':Commentary'                , 'comment' ]
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                , 'open init' ]
 let g:which_key_map[';'] = [ ':Commands'                  , 'commands' ]
 let g:which_key_map[','] = [ 'Startify'                   , 'start screen' ]
-let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
+let g:which_key_map['e'] = [ ':NERDTreeToggle'            , 'explorer' ]
+let g:which_key_map['r'] = [ ':Ranger'                    , 'ranger' ]
 let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
-let g:which_key_map['S'] = [ ':SSave'                     , 'save session' ]
-let g:which_key_map['H'] = [ ':HardTimeToggle'            , 'toggle HardTime' ]
+"let g:which_key_map['S'] = [ ':SSave'                     , 'save session' ]
+"let g:which_key_map['H'] = [ ':HardTimeToggle'            , 'toggle HardTime' ]
 
 
 "  ----------------------------------------------------------------------------
 "  LSP CONFIGURATION
 "  ----------------------------------------------------------------------------
-let g:which_key_map['l'] = {
-      \ 'name' : '+lsp' ,
-      \ '.' : [':CocConfig'                          , 'config'],
-      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-      \ 'b' : [':CocNext'                            , 'next action'],
-      \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'c' : [':CocList commands'                   , 'commands'],
-      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
-      \ 'e' : [':CocList extensions'                 , 'extensions'],
-      \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-      \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-      \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
-      \ 'O' : [':CocList outline'                    , 'outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-      \ 'r' : ['<Plug>(coc-rename)'                  , 'rename'],
-      \ 'R' : ['<Plug>(coc-references)'              , 'references'],
-      \ 's' : [':CocList -I symbols'                 , 'references'],
-      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-      \ 'u' : [':CocListResume'                      , 'resume list'],
-      \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'v' : [':Vista!!'                            , 'tag viewer'],
-      \ 'z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
-      \ }
+"let g:which_key_map['l'] = {
+"      \ 'name' : '+lsp' ,
+"      \ '.' : [':CocConfig'                          , 'config'],
+"      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
+"      \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
+"      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
+"      \ 'b' : [':CocNext'                            , 'next action'],
+"      \ 'B' : [':CocPrev'                            , 'prev action'],
+"      \ 'c' : [':CocList commands'                   , 'commands'],
+"      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
+"      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
+"      \ 'e' : [':CocList extensions'                 , 'extensions'],
+"      \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
+"      \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
+"      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
+"      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
+"      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
+"      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
+"      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
+"      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
+"      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
+"      \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
+"      \ 'O' : [':CocList outline'                    , 'outline'],
+"      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
+"      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
+"      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
+"      \ 'r' : ['<Plug>(coc-rename)'                  , 'rename'],
+"      \ 'R' : ['<Plug>(coc-references)'              , 'references'],
+"      \ 's' : [':CocList -I symbols'                 , 'references'],
+"      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
+"      \ 'u' : [':CocListResume'                      , 'resume list'],
+"      \ 'U' : [':CocUpdate'                          , 'update CoC'],
+"      \ 'v' : [':Vista!!'                            , 'tag viewer'],
+"      \ 'z' : [':CocDisable'                         , 'disable CoC'],
+"      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+"      \ }
 
 
 "  ----------------------------------------------------------------------------
@@ -134,26 +135,3 @@ let g:which_key_map['w'] = {
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
       \ '?' : ['Windows'    , 'skim-window']           ,
       \ }
-
-" remove old vimwiki mappings
-:nnoremap <leader>vw <Plug>VimwikiIndex
-:nnoremap <leader>vW <Plug>VimwikiTabIndex
-:nnoremap <leader>vs <Plug>VimwikiUISelect
-:nnoremap <leader>vi <Plug>VimwikiDiaryIndex
-:nnoremap <leader>vd <Plug>VimwikiMakeDiaryNote
-:nnoremap <leader>vD <Plug>VimwikiTabMakeDiaryNote
-
-:nnoremap <leader>vdy <Plug>VimwikiMakeYesterdayDiaryNote
-:nnoremap <leader>vdt <Plug>VimwikiMakeTomorrowDiaryNote
-
-
-let g:which_key_map['v'] = {
-      \ 'name' : '+wiki' ,
-      \ 'w' : ['<Plug>VimwikiIndex'             , 'open wiki-index']          ,
-      \ 'W' : ['<Plug>VimwikiTabIndex'          , 'open wiki-index (new tab)'],
-      \ 's' : ['<Plug>VimwikiUISelect'          , 'select wiki']              ,
-      \ 'i' : ['<Plug>VimwikiDiaryIndex'        , 'open diary-index']         ,
-      \ 'd' : ['<Plug>VimwikiMakeDiaryNote'     , 'make diary note']          ,
-      \ 'D' : ['<Plug>VimwikiTabMakeDiaryNote'  , 'open wiki-index (new tab)']     ,
-      \ }
-

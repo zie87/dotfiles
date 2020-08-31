@@ -26,8 +26,12 @@ set background=dark                     " tell vim what the background color loo
 set showtabline=2                       " Always show tabs 
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set clipboard=unnamedplus               " Copy paste between vim and everything else
-set colorcolumn=80                      " show column
+set colorcolumn=80,120                  " show column
 set undofile                            " enable undo after restart
+
+set ignorecase
+set smartcase                           " search case insensitiv if all lower key
+
 set completeopt=menuone,noinsert,noselect
 set termguicolors
 

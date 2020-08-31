@@ -1,6 +1,4 @@
 call plug#begin(stdpath('data') . '/plugged')
-" helps to learn do it right
-Plug 'takac/vim-hardtime'
 " Start Screen
 Plug 'mhinz/vim-startify'
 " rgb-hex colorizer
@@ -25,18 +23,23 @@ Plug 'airblade/vim-rooter'
 " comments
 Plug 'tpope/vim-commentary'
 " A bunch of useful language related snippets (ultisnips is the engine).
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" nerdtree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+" ranger
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+" languages & lsp
+Plug 'neovim/nvim-lsp'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete-lsp'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-" debugger
-"Plug 'puremourning/vimspector'
-" c/c++
-Plug 'cdelledonne/vim-cmake'
+Plug 'rhysd/vim-clang-format'
 " rust
 Plug 'rust-lang/rust.vim'
-" vim wiki
-Plug 'vimwiki/vimwiki'
 " scheme
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
