@@ -28,6 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'ryanoasis/vim-devicons'
 " ranger
 Plug 'francoiscabrol/ranger.vim'
