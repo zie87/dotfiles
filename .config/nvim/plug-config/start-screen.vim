@@ -77,5 +77,6 @@ let g:startify_bookmarks = [
             \ { 'z': '~/.zshrc' },
             \ { 't': '~/.tmux.conf' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'a': '~/.config/alacritty/alacritty.yml'},
+            \ { 'k': '~/.config/kitty/kitty.conf'},
+            \ { 'r': '~/.config/ranger/rc.conf'},
             \ ]

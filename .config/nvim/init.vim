@@ -35,6 +35,11 @@ source $HOME/.config/nvim/plug-config/whichkey.vim
 " init colorizer
 lua require 'colorizer'.setup()
 
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
 " init git blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500

@@ -22,6 +22,7 @@ let g:which_key_map[','] = [ 'Startify'                   , 'start screen' ]
 let g:which_key_map['e'] = [ ':NERDTreeToggle'            , 'explorer' ]
 let g:which_key_map['r'] = [ ':Ranger'                    , 'ranger' ]
 let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
+let g:which_key_map['C'] = 'toogle formatting'
 "let g:which_key_map['S'] = [ ':SSave'                     , 'save session' ]
 "let g:which_key_map['H'] = [ ':HardTimeToggle'            , 'toggle HardTime' ]
 
@@ -29,6 +30,31 @@ let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
 "  ----------------------------------------------------------------------------
 "  LSP CONFIGURATION
 "  ----------------------------------------------------------------------------
+"
+
+nnoremap <silent> <leader>ld    <cmd> lua vim.lsp.buf.definition()<CR> 
+nnoremap <silent> <leader>lD    <cmd> lua vim.lsp.buf.declaration()<CR> 
+nnoremap <silent> <leader>lh    <cmd> lua vim.lsp.buf.hover()<CR> 
+nnoremap <silent> <leader>li    <cmd> lua vim.lsp.buf.implementation()<CR> 
+nnoremap <silent> <leader>lR    <cmd> lua vim.lsp.buf.rename()<CR> 
+nnoremap <silent> <leader>lr    <cmd> lua vim.lsp.buf.references()<CR> 
+nnoremap <silent> <leader>lt    <cmd> lua vim.lsp.buf.type_definitions()<CR> 
+nnoremap <silent> <leader>lU    <cmd> lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
+nnoremap <silent> <leader>l.    :ClangdSwitchSourceHeader<CR>
+
+let g:which_key_map['l'] = {
+      \ 'name' : '+lsp'           ,
+      \ 'd' : 'definition'        ,
+      \ 'D' : 'declaration'       ,
+      \ 'h' : 'hover'             ,
+      \ 'i' : 'implementation'    ,
+      \ 'R' : 'rename'            ,
+      \ 'r' : 'references'        ,
+      \ 't' : 'type definition'   ,
+      \ '.' : 'switch header'     ,
+      \ 'U' : 'reload'            ,
+      \ }
+
 "let g:which_key_map['l'] = {
 "      \ 'name' : '+lsp' ,
 "      \ '.' : [':CocConfig'                          , 'config'],
