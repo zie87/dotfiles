@@ -5,6 +5,8 @@ Plug 'mhinz/vim-startify'
 Plug 'norcalli/nvim-colorizer.lua'
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
+" floaterm
+Plug 'voldikss/vim-floaterm'
 " optimize buffer handling
 Plug 'qpkorr/vim-bufkill'
 " status bar

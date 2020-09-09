@@ -25,6 +25,8 @@ source $HOME/.config/nvim/plug-config/ranger.vim
 "source $HOME/.config/nvim/plug-config/debugger.vim
 "source $HOME/.config/nvim/plug-config/snippets.vim
 "source $HOME/.config/nvim/plug-config/wiki.vim
+source $HOME/.config/nvim/plug-config/floaterm.vim
+
 
 source $HOME/.config/nvim/plug-config/whichkey.vim
 
