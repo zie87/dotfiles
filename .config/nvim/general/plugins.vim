@@ -45,5 +45,6 @@ Plug 'rhysd/vim-clang-format'
 Plug 'rust-lang/rust.vim'
 " scheme
 Plug 'crusoexia/vim-monokai'
+Plug 'christianchiarulli/nvcode.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()

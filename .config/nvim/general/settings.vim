@@ -40,6 +40,7 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType python setlocal noexpandtab
 
 " color scheme
+" colorscheme nvcode 
 colorscheme monokai
 
 
