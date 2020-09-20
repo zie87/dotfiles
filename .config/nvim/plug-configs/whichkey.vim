@@ -20,7 +20,7 @@ let g:which_key_map[';'] = [ ':Commands'                  , 'command list' ]
 let g:which_key_map[','] = [ 'Startify'                   , 'start screen' ]
 let g:which_key_map['e'] = [ ':NERDTreeToggle'            , 'explorer' ]
 let g:which_key_map['r'] = [ ':Ranger'                    , 'ranger' ]
-
+let g:which_key_map['C'] = [ ':ClangFormatAutoToggle'     , 'toggle clang-format' ]
 "  ----------------------------------------------------------------------------
 "  BUFFER CONFIGURATION (needs vim-bufkil)
 "  ----------------------------------------------------------------------------
@@ -67,6 +67,7 @@ let g:which_key_map.s = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'     , 'history'],
       \ ';' : [':Commands'     , 'commands'],
+      \ 'a' : [':AsyncTaskFzf' , 'async tasks'],
       \ 'b' : [':BLines'       , 'current buffer'],
       \ 'B' : [':Buffers'      , 'open buffers'],
       \ 'c' : [':Commits'      , 'commits'],
@@ -148,4 +149,13 @@ let g:which_key_map['l'] = {
 
 "  ----------------------------------------------------------------------------
 "  DEBUGGER CONFIGURATION
+"  ----------------------------------------------------------------------------
+let g:which_key_map['d'] = {
+      \ 'name' : '+debugger',
+      \ 'd' : 'launch'      ,
+      \ 'e' : 'eval'        ,
+      \ 'x' : 'reset'       ,
+      \ 'o' : 'show output' ,
+      \ 'w' : 'watch'       ,
+      \ }
 "  ----------------------------------------------------------------------------

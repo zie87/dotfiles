@@ -34,6 +34,8 @@ set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 
+set colorcolumn=80,120                  " show column lines
+set undofile                            " enable undo after restart
 
 set ignorecase
 set smartcase                           " search case insensitiv if all lower key

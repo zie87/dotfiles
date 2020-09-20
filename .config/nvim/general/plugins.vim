@@ -15,13 +15,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
     " nerdtree
-    Plug 'scrooloose/nerdtree'
+    Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'unkiwii/vim-nerdtree-sync'
     Plug 'ryanoasis/vim-devicons'
     " floaterm
     Plug 'voldikss/vim-floaterm'
+    " async
+    Plug 'skywind3000/asynctasks.vim'
+    Plug 'skywind3000/asyncrun.vim'
     " themes
     Plug 'crusoexia/vim-monokai'
     " statusline
@@ -41,6 +44,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'puremourning/vimspector'
     " scratchpad
     Plug 'metakirby5/codi.vim'
-    " c++
-    Plug 'jackguo380/vim-lsp-cxx-highlight' 
+    " clang-format
+    Plug 'rhysd/vim-clang-format'
 call plug#end()

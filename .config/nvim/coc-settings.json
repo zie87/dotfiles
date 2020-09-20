@@ -6,6 +6,6 @@
         "python",
         "cpp"
     ],
-    "clangd.semanticHighlighting": true,
+    "clangd.semanticHighlighting": false,
     "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }
