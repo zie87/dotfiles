@@ -19,7 +19,9 @@ source $HOME/.config/nvim/plug-configs/clang-format.vim
 source $HOME/.config/nvim/plug-configs/vimspector.vim
 
 source $HOME/.config/nvim/plug-configs/whichkey.vim
-source $HOME/.config/nvim/themes/monokai.vim
+" source $HOME/.config/nvim/themes/monokai.vim
+source $HOME/.config/nvim/themes/doom-one.vim
+
 
 " -----------------------------------------------------------------------------
 " ABBREVATIONS

@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'skywind3000/asyncrun.vim'
     " themes
     Plug 'crusoexia/vim-monokai'
+    Plug 'romgrk/doom-one.vim'
     " statusline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -46,4 +47,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'metakirby5/codi.vim'
     " clang-format
     Plug 'rhysd/vim-clang-format'
+    " lua-formatter
+    Plug 'andrejlevkovitch/vim-lua-format'
 call plug#end()

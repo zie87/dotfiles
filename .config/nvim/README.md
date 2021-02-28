@@ -1,5 +1,17 @@
 # Neovim
 
+## base installation
+
+```console
+# install neovim
+sudo pacman -S neovim neovim-qt python-pynvim xclip
+# install nodejs for coc
+sudo pacman -S npm yarn
+# download vim plug
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+
 ```console
 sudo pacman -S neovim
 
