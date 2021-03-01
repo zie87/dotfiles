@@ -75,7 +75,7 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [
             \ { 'z': '~/.zshrc' },
-            \ { 't': '~/.tmux.conf' },
+            \ { 'a': '~/.config/awesome/rc.lua' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'k': '~/.config/kitty/kitty.conf'},
             \ { 'r': '~/.config/ranger/rc.conf'},

@@ -20,11 +20,9 @@ theme.background = mat_colors.grey
 
 local awesome_overrides = function(theme)
     theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
-    -- theme.dir             = os.getenv("HOME") .. "/code/awesome-pro/themes/pro-dark"
-
     theme.icons = theme.dir .. '/icons/'
-    -- theme.wallpaper = theme.dir .. '/wallpapers/pro-dark-shadow.png'
-    theme.wallpaper = '#e0e0e0'
+    --theme.wallpaper = theme.dir .. '/wallpapers/pro-dark-shadow.png'
+    theme.wallpaper = "/usr/share/backgrounds/manjaro-wallpapers-18.0/manjaro-cat.jpg"
     theme.font = 'Roboto medium 10'
     theme.title_font = 'Roboto medium 14'
 
