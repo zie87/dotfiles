@@ -75,16 +75,42 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
+
+local open_awesome_cfg = apps.default.editor_cmd .. " " .. awesome.conffile 
+
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", apps.default.terminal .. " -e man awesome" },
-   { "edit config", apps.default.editor_cmd .. " " .. awesome.conffile },
+   { "edit config", open_awesome_cfg},
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
 
+local SYSTEMCTL="systemctl -q --no-block"
+
+session = {
+    lock        = SYSTEMCTL .. " --user start lock.target",
+    sleep       = SYSTEMCTL .. " suspend",
+    logout      = SYSTEMCTL .. " --user exit",
+    restart     = SYSTEMCTL .. " reboot",
+    shutdown    = SYSTEMCTL .. " poweroff"
+}
+
+mysessionmenu = {}
+for k, v in pairs(session) do
+    table.insert(mysessionmenu, {k, v})
+end
+
+mysettingsmenu = {
+    { "awesome", open_awesome_cfg },
+    { "theme",  "lxappearance" },
+    { "arandr", "arandr" }
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", apps.default.terminal }
+                                    { "settings", mysettingsmenu },
+                                    { "open terminal", apps.default.terminal },
+                                    { "session", mysessionmenu }
                                   }
                         })
 

@@ -1,5 +1,14 @@
 # AwesomeWM
 
+## themes
+
+* [the glorious dotfiles](https://github.com/manilarome/the-glorious-dotfiles)
+* [elenapan](https://github.com/elenapan/dotfiles)
+
+* [material](https://github.com/HikariKnight/material-awesome)
+* [material (old)](https://github.com/material-shell/material-awesome)
+* [titus material](https://github.com/ChrisTitusTech/titus-awesome)
+
 ## default applications
 
 * **terminal:** kitty
