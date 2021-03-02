@@ -22,13 +22,14 @@ local globalkeys = gears.table.join(
                                                 history_path = awful.util.get_cache_dir() .. "/history_eval"
                                             } end,                           {description = "lua execute prompt", group = "awesome"}),
 -- launcher
-    awful.key({modkey,        }, "Return", function() awful.spawn(apps.default.terminal) end,        {description = "open a terminal",     group = "launcher"}),
-    awful.key({modkey         }, "b",      function() awful.spawn(apps.default.filemanager) end,     {description = "launch filebrowser",  group = "launcher"}),
-    awful.key({modkey, "Shift"}, "b",      function() awful.spawn(apps.default.browser) end,         {description = "launch webbrowser",   group = "launcher"}),
-    awful.key({modkey         }, "e",      function() awful.spawn(apps.default.editor_cmd) end,      {description = "launch editor (cmd)", group = "launcher"}),
-    awful.key({modkey, "Shift"}, "e",      function() awful.spawn(apps.default.editor_gui) end,      {description = "launch editor (gui)", group = "launcher"}),
-    awful.key({modkey         }, "p",      function() awful.spawn(apps.default.app_runner) end,      {description = "application runner", group = "launcher"}),
-    awful.key({modkey         }, "r",      function () awful.screen.focused().mypromptbox:run() end, {description = "run prompt", group = "launcher"}),
+    awful.key({modkey,          }, "Return", function() awful.spawn(apps.default.terminal) end,        {description = "open a terminal",     group = "launcher"}),
+    awful.key({modkey           }, "b",      function() awful.spawn(apps.default.filemanager) end,     {description = "launch filebrowser",  group = "launcher"}),
+    awful.key({modkey, "Shift"  }, "b",      function() awful.spawn(apps.default.browser) end,         {description = "launch webbrowser",   group = "launcher"}),
+    awful.key({modkey           }, "e",      function() awful.spawn(apps.default.editor_cmd) end,      {description = "launch editor (cmd)", group = "launcher"}),
+    awful.key({modkey, "Shift"  }, "e",      function() awful.spawn(apps.default.editor_gui) end,      {description = "launch editor (gui)", group = "launcher"}),
+    awful.key({modkey           }, "p",      function() awful.spawn(apps.default.app_runner) end,      {description = "application runner", group = "launcher"}),
+    awful.key({modkey           }, "r",      function() awful.screen.focused().mypromptbox:run() end,  {description = "run prompt", group = "launcher"}),
+    awful.key({altkey, "Control"}, "l",      function() awful.spawn(apps.default.screen_locker) end,   {description = "lock screen", group = "launcher"}),
 -- layout
     awful.key({modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end, {description = "increase master width factor", group = "layout"}),
     awful.key({modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end, {description = "decrease master width factor", group = "layout"}),

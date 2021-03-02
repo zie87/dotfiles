@@ -16,14 +16,17 @@ return {
         editor_gui = editor_gui,
         browser = "firefox",
         filemanager = "thunar",
+        screen_locker = "light-locker-command -l",
         app_runner = "rofi -modi drun -show drun " .. " -show-icons" .. " -theme " .. filesystem.get_configuration_dir() .. '/cfg/rofi.rasi',
         -- rofi = "rofi -modi drun -show drun ".. " -dpi " .. get_dpi() .. " -width " .. with_dpi(400) .. " -theme " .. filesystem.get_configuration_dir() .. '/cfg/rofi.rasi',
     },
     -- List of apps to start once on start-up
     run_on_start_up = {
-        'compton --config ' .. filesystem.get_configuration_dir() .. '/cfg/compton.conf', 
-        'blueberry-tray', -- Bluetooth tray icon
+        -- 'picom --config ' .. filesystem.get_configuration_dir() .. '/cfg/picom.conf', 
+        'light-locker', -- screen locker daemon
+        'dropbox',
         'xfce4-power-manager', -- Power manager
+        'xfce4-clipman', --clipboard helper
         '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)' -- credential manager
     }
 }
