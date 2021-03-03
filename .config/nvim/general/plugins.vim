@@ -26,7 +26,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/asyncrun.vim'
     " themes
-    " Plug 'crusoexia/vim-monokai'
+    Plug 'crusoexia/vim-monokai'
     Plug 'patstockwell/vim-monokai-tasty'
     Plug 'romgrk/doom-one.vim'
     Plug 'jacoborus/tender.vim'
