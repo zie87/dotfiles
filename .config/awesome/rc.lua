@@ -46,7 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "background/fox_girl_at_night.png"
+beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "background/wallpaper_02.png"
 beautiful.useless_gap = 2
 beautiful.border_width = 2
 

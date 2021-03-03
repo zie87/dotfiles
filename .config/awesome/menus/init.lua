@@ -10,7 +10,7 @@ local open_awesome_cfg = apps.default.editor_cmd .. " " .. awesome.conffile
 
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", apps.default.terminal .. " -e man awesome" },
+   { "manual", apps.default.browser .. " -new-window /usr/share/doc/awesome/doc/index.html" },
    { "edit config", open_awesome_cfg},
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
