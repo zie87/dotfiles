@@ -1,11 +1,17 @@
+# If you come from bash you might have to change your $PATH.
+
+export GOHOME="${HOME}/.go"
+export GOPATH="${HOME}/.go"
+export PATH=${HOME}/.luarocks/bin:${GOPATH}/.bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH="${HOME}/.oh-my-zsh"
+export ZSH="/home/zie/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -24,7 +30,7 @@ ZSH_THEME="agnoster"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -36,6 +42,8 @@ ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -55,19 +63,13 @@ ZSH_THEME="agnoster"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker tmux rust)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
-# skim zsh plugins 
-[[ $- == *i* ]] && source "/usr/share/skim/completion.zsh" 2> /dev/null
-source "/usr/share/skim/key-bindings.zsh"
-
-export SKIM_DEFAULT_COMMAND='fd --type f || git ls-tree -r --name-only HEAD || rg --files || find .'
 
 # User configuration
 
@@ -76,7 +78,6 @@ export SKIM_DEFAULT_COMMAND='fd --type f || git ls-tree -r --name-only HEAD || r
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
 export EDITOR='nvim'
 
 # Compilation flags
@@ -86,17 +87,15 @@ export EDITOR='nvim'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+ 
+alias els="exa --icons"
+alias ell="exa --icons --long --header --git --git-ignore"
+alias ela="exa --icons --long --header --git --all"
 
 alias vim="nvim"
-alias cat="bat"
-alias ppsspp="PPSSPPQt"
-
-alias ll="exa --long --icons --header --git --git-ignore"
-alias la="exa --all --icons --long --header --git"
-
 alias zshconfig="${EDITOR} ~/.zshrc"
 alias vimconfig="${EDITOR} ~/.config/nvim/init.vim"
-alias tmuxconfig="${EDITOR} ~/.tmux.conf"
 alias whatigot="pacman -Qqe"
 
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# for dotfile management
+alias dfcfg='/usr/bin/git --git-dir=$HOME/.dfcfg/ --work-tree=$HOME'

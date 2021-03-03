@@ -1,50 +1,54 @@
-call plug#begin(stdpath('data') . '/plugged')
-" Start Screen
-Plug 'mhinz/vim-startify'
-" rgb-hex colorizer
-Plug 'norcalli/nvim-colorizer.lua'
-" tmux
-Plug 'christoomey/vim-tmux-navigator'
-" floaterm
-Plug 'voldikss/vim-floaterm'
-" optimize buffer handling
-Plug 'qpkorr/vim-bufkill'
-" status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" See what keys do like in emacs
-Plug 'liuchengxu/vim-which-key'
-" source code management
-Plug 'airblade/vim-gitgutter'
-Plug 'APZelos/blamer.nvim'
-Plug 'paul-nechifor/vim-svn-blame'
-" skim
-Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-Plug 'zie87/skim.vim'
-Plug 'airblade/vim-rooter'
-" comments
-Plug 'tpope/vim-commentary'
-" A bunch of useful language related snippets (ultisnips is the engine).
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'unkiwii/vim-nerdtree-sync'
-Plug 'ryanoasis/vim-devicons'
-" ranger
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-" languages & lsp
-Plug 'neovim/nvim-lsp'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-lsp'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'rhysd/vim-clang-format'
-" rust
-Plug 'rust-lang/rust.vim'
-" scheme
-Plug 'crusoexia/vim-monokai'
-Plug 'christianchiarulli/nvcode.vim'
-Plug 'morhetz/gruvbox'
+" auto-install vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+call plug#begin('~/.config/nvim/autoload/plugged')
+    " start screen
+    Plug 'mhinz/vim-startify'
+    " key mapping
+    Plug 'liuchengxu/vim-which-key'
+    " buffer handling
+    Plug 'qpkorr/vim-bufkill'
+    " ranger
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
+    " nerdtree
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'unkiwii/vim-nerdtree-sync'
+    Plug 'ryanoasis/vim-devicons'
+    " floaterm
+    Plug 'voldikss/vim-floaterm'
+    " async
+    Plug 'skywind3000/asynctasks.vim'
+    Plug 'skywind3000/asyncrun.vim'
+    " themes
+    Plug 'crusoexia/vim-monokai'
+    Plug 'patstockwell/vim-monokai-tasty'
+    Plug 'romgrk/doom-one.vim'
+    Plug 'jacoborus/tender.vim'
+    " statusline
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    " fzf
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    " comments
+    Plug 'tpope/vim-commentary'
+    " vcs
+    Plug 'mhinz/vim-signify'
+    " language support
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'honza/vim-snippets'
+    " debugger
+    Plug 'puremourning/vimspector'
+    " scratchpad
+    Plug 'metakirby5/codi.vim'
+    " clang-format
+    Plug 'rhysd/vim-clang-format'
+    " lua-formatter
+    Plug 'andrejlevkovitch/vim-lua-format'
 call plug#end()

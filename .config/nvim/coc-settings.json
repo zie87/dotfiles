@@ -1,11 +1,11 @@
 {
-    "clangd.semanticHighlighting": true,
-  
-    "explorer.width": 30,
-    "explorer.icon.enableNerdfont": true,
-    "explorer.previewAction.onHover": false,
-    "explorer.keyMappings": {
-        "<space>": ["expandable?", "expand", "open"],
-        "v": "open:vsplit"
-    }
+    "coc.preferences.formatOnSaveFiletypes": [
+        "markdown",
+        "yaml",
+        "json",
+        "python",
+        "cpp"
+    ],
+    "clangd.semanticHighlighting": false,
+    "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }
