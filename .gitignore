@@ -1,12 +1,24 @@
-
 Downloads
 Dropbox
 Games
+Documents
+Library
+Multimedia
+Music
+Pictures
+Videos
 Workspace
+snap
+
+.gnupg
+.ssh
 
 .dfcfg
 .gitconfig
+.password-store
 
+.java
+.mono
 .cargo
 .rustup
 .cache
@@ -21,15 +33,30 @@ Workspace
 .dir_colors
 .dmrc
 
+.wine
+.renpy
 .forge/forge.log
 .forge/achievements
 .forge/preferences
 
+.config/manjaro-hello.json
 .config/manjaro.subversion
+.config/manjaro
 
 .oh-my-zsh
+.bash_history
 .zsh_history
 .zhistory
+.python_history
+.zcompdump*
+
+.pki
+.nv
+.hplip
+
+.Xauthority
+.ICEauthority
 
 __pycache__
+.xsession-errors*
 
