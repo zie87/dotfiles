@@ -97,5 +97,8 @@ alias zshconfig="${EDITOR} ~/.zshrc"
 alias vimconfig="${EDITOR} ~/.config/nvim/init.vim"
 alias whatigot="pacman -Qqe"
 
+# bat as a manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # for dotfile management
 alias dfcfg='/usr/bin/git --git-dir=$HOME/.dfcfg/ --work-tree=$HOME'
