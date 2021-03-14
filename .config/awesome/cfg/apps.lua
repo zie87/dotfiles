@@ -1,31 +1,35 @@
 local filesystem = require('gears.filesystem')
-local with_dpi = require('beautiful').xresources.apply_dpi
-local get_dpi = require('beautiful').xresources.get_dpi
 
 local terminal = 'kitty'
 local editor = os.getenv("EDITOR") or "nvim"
 local editor_cmd = terminal .. " -e " .. editor
 local editor_gui = "emacs"
 
-local rofi_script_path =  os.getenv("HOME") .. ".config/rofi/applets/menu/"
+local web_browser   = "librewolf"
+local file_browser  = "thunar"
+local screen_locker = "light-locker-command -l"
+
+local rofi_script_path =  os.getenv("HOME") .. "/.config/rofi/applets/menu/"
+
+local drun_cmd = "rofi -modi drun -show drun " .. " -theme " .. filesystem.get_configuration_dir() .. '/cfg/rofi.rasi'
+local power_cmd = rofi_script_path .. "powermenu.sh"
+local pass_cmd = "passmenu -l 10"
 
 return {
-    -- List of apps to start by default on some actions
     default = {
         terminal      = terminal,
         editor        = editor,
         editor_cmd    = editor_cmd,
         editor_gui    = editor_gui,
-        browser       = "firefox",
-        filemanager   = "thunar",
-        screen_locker = "light-locker-command -l",
+        browser       = web_browser,
+        filemanager   = file_browser,
+        screen_locker = screen_locker,
     },
     runner =  {
-        drun      = "rofi -modi drun -show drun " .. " -theme " .. filesystem.get_configuration_dir() .. '/cfg/rofi.rasi',
-        powermenu = "/home/zie/.config/rofi/applets/menu/powermenu.sh",
-        passmenu  = "passmenu -l 10"
+        drun      = drun_cmd,
+        powermenu = power_cmd,
+        passmenu  = pass_cmd
     },
-    -- List of apps to start once on start-up
     run_on_start_up = {
         -- 'picom --config ' .. filesystem.get_configuration_dir() .. '/cfg/picom.conf', 
         'light-locker', -- screen locker daemon

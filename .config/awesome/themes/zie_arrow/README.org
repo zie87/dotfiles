@@ -1,3 +1,24 @@
+#+TITLE: Zie Arrow Theme
+#+AUTHOR: Tobias Zindl
+#+PROPERTY: header-args :tangle theme.lua
+
+* Table of Content :toc:
+- [[#introduction][Introduction]]
+- [[#imports][Imports]]
+- [[#colors][Colors]]
+- [[#general][General]]
+- [[#notifications][notifications]]
+- [[#menu][Menu]]
+- [[#titlebar][Titlebar]]
+- [[#layout-symbols][Layout Symbols]]
+- [[#icons-and-wallpaper][Icons and Wallpaper]]
+
+* Introduction
+
+This theme is based on the default awesome theme. The colors are based on the [[https://github.com/crusoexia/vim-monokai][/Monokai/]] colorscheme for vim.
+
+* Imports
+#+begin_src lua
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -7,6 +28,11 @@ local themes_path =  gfs.get_configuration_dir() .. "themes/zie_arrow/"
 
 local theme = {}
 
+#+end_src
+
+* Colors
+
+#+begin_src lua
 local monokai_white       = "#E8E8E3"
 local monokai_white2      = "#d8d8d3"
 local monokai_black       = "#272822"
@@ -40,7 +66,11 @@ local monokai_br_blue     = "#7AA6DA"
 local monokai_br_purple   = "#B77EE0"
 local monokai_br_cyan     = "#54CED6"
 local monokai_br_white    = "#FFFFFF"
+#+end_src
 
+* General
+
+#+begin_src lua
 theme.green   = monokai_green
 theme.red     = monokai_red
 theme.blue    = monokai_aqua
@@ -86,13 +116,21 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
+#+end_src
 
+* notifications
+
+#+begin_src lua
 -- Variables set for theming notifications:
 -- notification_font
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
+#+end_src
 
+* Menu
+
+#+begin_src lua
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
@@ -104,7 +142,11 @@ theme.menu_width  = dpi(100)
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
 --theme.bg_widget = "#cc0000"
+#+end_src
 
+* Titlebar
+
+#+begin_src lua
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path.."titlebar/close_normal.png"
 theme.titlebar_close_button_focus  = themes_path.."titlebar/close_focus.png"
@@ -132,6 +174,11 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."titlebar/maximiz
 theme.titlebar_maximized_button_normal_active = themes_path..  "titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path..  "titlebar/maximized_focus_active.png"
 
+#+end_src
+
+* Layout Symbols
+
+#+begin_src lua
 -- You can use your own layout icons like this:
 theme.layout_tile       = themes_path .. "layouts/tile.png"
 theme.layout_tileleft   = themes_path .. "layouts/tileleft.png"
@@ -150,6 +197,13 @@ theme.layout_cornerne   = themes_path .. "layouts/cornerne.png"
 theme.layout_cornersw   = themes_path .. "layouts/cornersw.png"
 theme.layout_cornerse   = themes_path .. "layouts/cornerse.png"
 
+#+end_src
+
+* Icons and Wallpaper
+
+The Wallpaper was found in [[https://www.reddit.com/r/unixporn/comments/f4afb0/dwm_monokai_suckless_and_vim_setup/][r/unixporn]] a high resolution version is availible on [[https://i.imgur.com/OHkR2vt.png][imgur]].
+
+#+begin_src lua
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus
@@ -161,3 +215,4 @@ theme.icon_theme = "Papirus-Dark"
 
 theme.wallpaper = themes_path.."background.png"
 return theme
+#+end_src

@@ -1,5 +1,19 @@
 #+TITLE: AwesomeWM config
+#+AUTHOR: Tobias Zindl
 #+PROPERTY: header-args :tangle rc.lua
+
+* Table of Content :toc:
+- [[#introduction][Introduction]]
+- [[#imports][Imports]]
+- [[#error-handling][Error handling]]
+- [[#variables-and-theming][Variables and Theming]]
+- [[#documentation-is-missing][Documentation is missing]]
+- [[#widgets][Widgets]]
+- [[#panel-wibox][Panel (Wibox)]]
+- [[#tag-handling][Tag handling]]
+- [[#rules][Rules]]
+- [[#signals][Signals]]
+- [[#autostart][Autostart]]
 
 * Introduction
 [[https://awesomewm.org/][Awesome]] is a dynamically tiling framework window manager for X11.
@@ -8,6 +22,8 @@ This is the *awesome* configuration of Tobias Zindl (/zie/)
 My Github: [[https://github.com/zie87]]
 
 This config is based on the default *awesome* config. I splitted the main configuration in to different submodules to make it easier to handle.
+
+To create the lua source code from this document press =Ctrl-C Ctrl-C= and then run =org-babel-tangle= inside of Emacs.
 
 * Imports
 
@@ -42,7 +58,7 @@ require("awful.hotkeys_popup.keys")
 
 * Error handling
 
-This checks for errors on startup and fallsabck to the default config.
+This checks for errors on startup. If an error occurs it falls back to the default config.
 #+begin_src lua
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
@@ -50,6 +66,8 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 #+end_src
+
+#+RESULTS:
 
 This checks for runtime errors.
 #+begin_src lua
@@ -69,9 +87,7 @@ end
 
 * Variables and Theming
 
-The following lines will import self defined modules (*apps* and *keys*) and make them availible inside this source module. It also propagates the default terminal for the window manager. *beautiful* is initialized with my own theme /zie_arrow/.
-
-** TODO add links to own modules and theme
+The following lines will import self defined modules ([[file:cfg/apps.org][apps]] and [[file:cfg/keys.org][keys]]) and make them availible inside this source module. It also propagates the default terminal for the window manager. *beautiful* is initialized with my own theme [[file:themes/zie_arrow/README.org][zie_arrow]].
 
 #+begin_src lua
 local apps = require('cfg.apps')
@@ -84,7 +100,7 @@ local config_dir =  gears.filesystem.get_configuration_dir()
 beautiful.init(config_dir .. "themes/zie_arrow/theme.lua")
 beautiful.wallpaper = config_dir .. "background/wallpaper_02.png"
 #+end_src
-* TODO documentation is missing
+* TODO Documentation is missing
 #+begin_src lua
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -343,7 +359,7 @@ root.buttons(gears.table.join(
 
 
 #+end_src
-* TODO tag handling
+* TODO Tag handling
 #+begin_src lua
 globalkeys = keys.global
 clientkeys = keys.client
