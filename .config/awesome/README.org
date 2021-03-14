@@ -2,7 +2,8 @@
 #+AUTHOR: Tobias Zindl
 #+PROPERTY: header-args :tangle rc.lua
 
-#+CAPTION: Awesome Scrot #+ATTR_HTML: :alt Awesome Scrot :title Awesome Scrot :align left [[file:screenshots/Screenshot_2021-03-14-32_1920x1080.png]]
+#+CAPTION: Awesome Scrot #+ATTR_HTML: :alt Awesome Scrot :title Awesome Scrot :align left 
+[[file:screenshots/Screenshot_2021-03-14-32_1920x1080.png]]
 
 * Table of Content :toc:
 - [[#introduction][Introduction]]
@@ -32,15 +33,17 @@ To create the lua source code from this document press =Ctrl-C Ctrl-C= and then 
 ** needed libaries
 
 Some Lua libaries needs to be installed on the system on [[https://archlinux.org/][Arch Linux]] you can install them with:
-~sudo pacman -S awesome awesome-freedesktop lain luarocks~. I would also recommend to install [[https://github.com/serialoverflow/awmtt][awmtt]]. You can install it via /aur/: ~paru -S awmtt~
++ ~sudo pacman -S awesome awesome-freedesktop lain luarocks~. 
+I would also recommend to install [[https://github.com/serialoverflow/awmtt][awmtt]]. You can install it via /aur/: 
++ ~paru -S awmtt~
 
 ** used programs
 
 The keybindungs start specific programs which are defined inside of the [[file:cfg/apps.org][apps module]]. If you want to use this configuration you should install this programs or change the default applications beforehand.
 
 You can install the default applications with:
-~sudo pacman -S kitty neovim emacs thunar dmenu rofi scrot pass light-locker~ and
-~paru -S librewolf-bin~
++ ~sudo pacman -S kitty neovim emacs thunar dmenu rofi scrot pass light-locker~
++ ~paru -S librewolf-bin~
 
 * Imports
 
