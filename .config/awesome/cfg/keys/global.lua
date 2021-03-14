@@ -27,9 +27,18 @@ local globalkeys = gears.table.join(
     awful.key({modkey, "Shift"  }, "b",      function() awful.spawn(apps.default.browser) end,         {description = "launch webbrowser",   group = "launcher"}),
     awful.key({modkey           }, "e",      function() awful.spawn(apps.default.editor_cmd) end,      {description = "launch editor (cmd)", group = "launcher"}),
     awful.key({modkey, "Shift"  }, "e",      function() awful.spawn(apps.default.editor_gui) end,      {description = "launch editor (gui)", group = "launcher"}),
-    awful.key({modkey           }, "p",      function() awful.spawn(apps.default.app_runner) end,      {description = "application runner", group = "launcher"}),
     awful.key({modkey           }, "r",      function() awful.screen.focused().mypromptbox:run() end,  {description = "run prompt", group = "launcher"}),
     awful.key({altkey, "Control"}, "l",      function() awful.spawn(apps.default.screen_locker) end,   {description = "lock screen", group = "launcher"}),
+-- dmenu / rofi scripts    
+    awful.key({modkey           }, "p",      function() awful.spawn(apps.runner.drun) end, {description = "apps menu", group = "rofi menus"}),
+    awful.key({modkey, "Control"}, "p",      function() awful.spawn(apps.runner.passmenu) end, {description = "password menu", group = "rofi menus"}),
+    awful.key({"Control", altkey}, "Delete", function() awful.spawn.with_shell(apps.runner.powermenu) end, {description = "power menu", group = "rofi menus"}),
+-- control keys
+    awful.key({ }, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 10") end,                       {description = "brightness +10%", group = "control keys"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10") end,                       {description = "brightness -10%", group = "control keys"}),
+    awful.key({ }, "XF86AudioMute",         function () awful.util.spawn("amixer -D pulse set Master 1+ togglemute") end, {description = "audio mute", group = "control keys"}),
+    awful.key({ }, "XF86AudioRaiseVolume",  function () awful.util.spawn("amixer set Master 5%+") end,                    {description = "audio +5%", group = "control keys"}),
+    awful.key({ }, "XF86AudioLowerVolume",  function () awful.util.spawn("amixer set Master 5%-") end,                    {description = "audio -5%", group = "control keys"}),
 -- layout
     awful.key({modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end, {description = "increase master width factor", group = "layout"}),
     awful.key({modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end, {description = "decrease master width factor", group = "layout"}),
@@ -65,7 +74,6 @@ local globalkeys = gears.table.join(
                                                c:emit_signal( "request::activate", "key.unminimize", {raise = true})
                                              end
                                           end,                                          {description = "restore minimized", group = "client"})
-
 )
 
 return globalkeys
