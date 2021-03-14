@@ -4,6 +4,8 @@
 
 * Table of Content :toc:
 - [[#introduction][Introduction]]
+  - [[#needed-libaries][needed libaries]]
+  - [[#used-programs][used programs]]
 - [[#imports][Imports]]
 - [[#error-handling][Error handling]]
 - [[#variables-and-theming][Variables and Theming]]
@@ -24,6 +26,19 @@ My Github: [[https://github.com/zie87]]
 This config is based on the default *awesome* config. I splitted the main configuration in to different submodules to make it easier to handle.
 
 To create the lua source code from this document press =Ctrl-C Ctrl-C= and then run =org-babel-tangle= inside of Emacs.
+
+** needed libaries
+
+Some Lua libaries needs to be installed on the system on [[https://archlinux.org/][Arch Linux]] you can install them with:
+~sudo pacman -S awesome awesome-freedesktop lain~. I would also recommend to install [[https://github.com/serialoverflow/awmtt][awmtt]] it is available in the aur and can be installed via ~paru -S awmtt~
+
+** used programs
+
+The keybindungs start specific programs which are defined inside auf the [[file:cfg/apps.org][apps module]]. If you want to use this configuration you should install this programs or change the default applications beforehand.
+
+You can install the default applications via:
+~sudo pacman -S kitty neovim emacs thunar dmenu rofi pass light-locker~ and
+~paru -S librewolf-bin~
 
 * Imports
 
