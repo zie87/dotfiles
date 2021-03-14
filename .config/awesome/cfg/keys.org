@@ -56,6 +56,7 @@ local globalkeys = gears.table.join(
     awful.key({modkey           }, "p",      function() awful.spawn(apps.runner.drun) end, {description = "apps menu", group = "rofi menus"}),
     awful.key({modkey, "Control"}, "p",      function() awful.spawn(apps.runner.passmenu) end, {description = "password menu", group = "rofi menus"}),
     awful.key({"Control", altkey}, "Delete", function() awful.spawn.with_shell(apps.runner.powermenu) end, {description = "power menu", group = "rofi menus"}),
+    awful.key({modkey,          }, "Print",  function() awful.spawn.with_shell(apps.runner.screenshotmenu) end, {description = "screenshot menu", group = "rofi menus"}),
 -- control keys
     awful.key({ }, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 10") end,                       {description = "brightness +10%", group = "control keys"}),
     awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10") end,                       {description = "brightness -10%", group = "control keys"}),
@@ -99,6 +100,8 @@ local globalkeys = gears.table.join(
                                           end,                                          {description = "restore minimized", group = "client"})
 )
 #+end_src
+
+#+RESULTS:
 
 * Client Keybindings
 #+begin_src lua
