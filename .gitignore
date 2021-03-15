@@ -43,7 +43,9 @@ snap
 .config/manjaro.subversion
 .config/manjaro
 
+.emacs.d
 .oh-my-zsh
+
 .bash_history
 .zsh_history
 .zhistory
@@ -60,3 +62,4 @@ snap
 __pycache__
 .xsession-errors*
 
+.var

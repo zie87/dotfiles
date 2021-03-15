@@ -1,37 +1,26 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
--- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- Widget and layout library
+
 local wibox = require("wibox")
--- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors })
 end
 
--- Handle runtime errors after startup
 do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true
 
@@ -41,57 +30,42 @@ do
         in_error = false
     end)
 end
--- }}}
-
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "background/wallpaper_02.png"
-beautiful.useless_gap = 2
-beautiful.border_width = 2
 
 local apps = require('cfg.apps')
+awful.util.terminal = apps.default.terminal
 local keys = require('cfg.keys')
 local modkey = keys.mod.modKey
+
+local config_dir =  gears.filesystem.get_configuration_dir()
+
+beautiful.init(config_dir .. "themes/zie_arrow/theme.lua")
+beautiful.wallpaper = config_dir .. "background/wallpaper_02.png"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.floating,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier,
-    -- awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
 }
 -- }}}
+
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 
 mymainmenu = require('menus').mainmenu
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+
+local menu_icon = beautiful.awesome_icon 
+mylauncher = awful.widget.launcher({ image = menu_icon, menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = apps.default.terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -148,12 +122,98 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+local markup     = require("lain").util.markup
+local separators = require("lain").util.separators
+local widgets    = require("lain").widget
+
+local icons_dir = config_dir .. "icons/"
+-- clock widget
+local myclock = awful.widget.watch(
+    "date +'%a %d %b %R'", 60,
+    function(widget, stdout)
+        widget:set_markup(" " .. markup.font(beautiful.font, stdout))
+    end
+)
+-- MEM
+local memicon = wibox.widget.imagebox(icons_dir .. "mem.png")
+local mem = widgets.mem({
+    settings = function()
+        widget:set_markup(markup.font(beautiful.font, " " .. mem_now.used .. "MB "))
+    end
+})
+
+-- CPU
+local cpuicon = wibox.widget.imagebox(icons_dir .. "cpu.png")
+local cpu = widgets.cpu({
+    settings = function()
+        widget:set_markup(markup.font(beautiful.font, " " .. cpu_now.usage .. "% "))
+    end
+})
+
+-- Coretemp
+local tempicon = wibox.widget.imagebox(icons_dir .. "temp.png")
+local temp = widgets.temp({
+    settings = function()
+        widget:set_markup(markup.font(beautiful.font, " " .. coretemp_now .. "°C "))
+    end
+})
+-- volume widget
+local volicon = wibox.widget.imagebox(icons_dir .. "vol.png")
+local volume = widgets.alsa({
+    settings = function()
+        if volume_now.status == "off" then volicon:set_image(icons_dir .. "vol_mute.png")
+        elseif tonumber(volume_now.level) == 0 then volicon:set_image(icons_dir .. "vol_no.png")
+        elseif tonumber(volume_now.level) <= 50 then volicon:set_image(icons_dir .. "vol_low.png")
+        else volicon:set_image(icons_dir .. "vol.png")
+        end
+
+        widget:set_markup(markup.font(beautiful.font, " " .. volume_now.level .. "% "))
+    end
+})
+
+volume.widget:buttons(awful.util.table.join(
+    awful.button({}, 4, function () awful.util.spawn("amixer -D pulse set Master 1%+") volume.update() end),
+    awful.button({}, 5, function () awful.util.spawn("amixer -D pulse set Master 1%-") volume.update() end)
+))
+-- battery widget
+local baticon = wibox.widget.imagebox(icons_dir .. "battery.png")
+local bat = widgets.bat({
+    settings = function()
+        if bat_now.status and bat_now.status ~= "N/A" then
+            if bat_now.ac_status == 1 then baticon:set_image(icons_dir .. "ac.png")
+            elseif not bat_now.perc and tonumber(bat_now.perc) <= 5  then baticon:set_image(icons_dir .. "battery_empty.png")
+            elseif not bat_now.perc and tonumber(bat_now.perc) <= 15 then baticon:set_image(icons_dir .. "battery_low.png" )
+            else baticon:set_image(icons_dir .. "battery.png")
+            end
+            widget:set_markup(markup.font(beautiful.font, " " .. bat_now.perc .. "% "))
+        else
+            widget:set_markup(markup.font(beautiful.font, " AC "))
+            baticon:set_image(icons_dir .. "ac.png")
+        end
+    end
+})
+-- net widget
+local neticon = wibox.widget.imagebox( config_dir .. "icons/net.png" )
+local net = widgets.net({
+    settings = function()
+        widget:set_markup(markup.font(beautiful.font,
+                          markup(beautiful.green, " " .. string.format("%06.1f", net_now.received))
+                          .. " " ..
+                          markup(beautiful.purple, " " .. string.format("%06.1f", net_now.sent) .. " ")))
+    end
+})
+
+-- utils
+local spacer  = wibox.widget.textbox(' ')
+local arrow_dl = separators.arrow_left(beautiful.bg_focus, "alpha")
+local arrow_ld = separators.arrow_left("alpha", beautiful.bg_focus)
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ " ", " ", " ", " ", " ", " ", " ", " ", " "  }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -187,17 +247,38 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
             s.mytaglist,
             s.mypromptbox,
+            spacer,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
+            spacer,
+            arrow_ld,
+            wibox.container.background(memicon, beautiful.bg_focus),
+            wibox.container.background(mem.widget, beautiful.bg_focus),
+            arrow_dl,
+            wibox.container.background(cpuicon, beautiful.bg_normal),
+            wibox.container.background(cpu.widget, beautiful.bg_normal),
+            arrow_ld,
+            wibox.container.background(tempicon, beautiful.bg_focus),
+            wibox.container.background(temp.widget, beautiful.bg_focus),
+            arrow_dl,
+            wibox.container.background(baticon, beautiful.bg_normal),
+            wibox.container.background(bat.widget, beautiful.bg_normal),
+            arrow_ld,
+            wibox.container.background(volicon, beautiful.bg_focus),
+            wibox.container.background(volume.widget, beautiful.bg_focus),
+            arrow_dl,
+            wibox.container.background(neticon, beautiful.bg_normal),
+            wibox.container.background(net.widget, beautiful.bg_normal),
+            arrow_ld,
+            wibox.container.background(myclock, beautiful.bg_focus),
+            arrow_dl,
+            spacer,
+            wibox.container.background(s.mylayoutbox, beautiful.bg_normal),
         },
     }
 end)
@@ -210,7 +291,6 @@ root.buttons(gears.table.join(
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
-
 
 globalkeys = keys.global
 clientkeys = keys.client
@@ -301,43 +381,30 @@ awful.rules.rules = {
 
     -- Floating clients.
     { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-          "pinentry",
-        },
-        class = {
-          "Arandr",
-          "Blueman-manager",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-          "Wpa_gui",
-          "veromix",
-          "xtightvncviewer"},
-
-        -- Note that the name property shown in xprop might be set slightly after creation of the client
-        -- and the name shown there might not match defined rules here.
-        name = {
-          "Event Tester",  -- xev.
-        },
-        role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "ConfigManager",  -- Thunderbird's about:config.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
-      }, properties = { floating = true }},
+            instance = {
+            },
+            class = {
+                "Arandr",
+                "Blueman-manager",
+                "Wpa_gui",
+                "Xephyr"
+            },
+            -- Note that the name property shown in xprop might be set slightly after creation of the client
+            -- and the name shown there might not match defined rules here.
+            name = {
+                "Event Tester",  -- xev.
+            },
+            role = {
+            }
+        }, properties = { floating = true }
+    },
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+    { rule_any = {type = { "normal", "dialog" }}, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- { rule = { class = "Firefox" }, properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -372,5 +439,3 @@ local autorun_apps = apps.run_on_start_up
 for app = 1, #autorun_apps do
     awful.spawn.single_instance(autorun_apps[app])
 end
-
-

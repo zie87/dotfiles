@@ -1,0 +1,94 @@
+#+TITLE: Applications
+#+AUTHOR: Tobias Zindl
+#+PROPERTY: header-args :tangle apps.lua
+
+* Table of Content :toc:
+- [[#about][About]]
+- [[#import][Import]]
+- [[#default-applications][Default Applications]]
+- [[#rofi-menus][Rofi menus]]
+- [[#return-structure][Return structure]]
+
+* About
+This file contains definitions for default application, popup menus and startup applications.
+
+* Import
+
+This module only needs some filesystem information.
+
+#+begin_src lua
+local filesystem = require('gears.filesystem')
+#+end_src
+
+* Default Applications
+
+In this section some applications are defined in side an own variable. This is only for convenience.
+The default applications are:
+- kitty :: GPU based terminal emulator [[https://sw.kovidgoyal.net/kitty/][link]]
+- neovim :: best editor ever [[https://neovim.io][link]]
+- emacs :: doom-emacs for documents like this [[https://github.com/hlissner/doom-emacs][link]]
+- thunar ::  file manager for XFCE [[https://docs.xfce.org/xfce/thunar/start][link]]
+- librewolf :: fork of firefox [[https://librewolf-community.gitlab.io/][link]]
+
+#+begin_src lua
+
+local terminal = 'kitty'
+local editor = os.getenv("EDITOR") or "nvim"
+local editor_cmd = terminal .. " -e " .. editor
+local editor_gui = "emacs"
+
+local web_browser   = "librewolf"
+local file_browser  = "thunar"
+local screen_locker = "light-locker-command -l"
+#+end_src
+
+* Rofi menus
+
+[[https://github.com/davatorium/rofi][Rofi]] is used to provide some menus and launcher. The applets scripts are based on [[https://github.com/adi1090x/rofi]].
+
+#+begin_src lua
+
+local rofi_script_path =  os.getenv("HOME") .. "/.config/rofi/applets/menu/"
+
+local drun_cmd = "rofi -modi drun -show drun " .. " -theme " .. filesystem.get_configuration_dir() .. '/cfg/rofi.rasi'
+local power_cmd = rofi_script_path .. "powermenu.sh"
+local screenshot_cmd = rofi_script_path .. "screenshot.sh"
+local pass_cmd = "passmenu -l 10"
+#+end_src
+
+* Return structure
+
+This structure contains three parts:
+- default :: varibales with all default applications
+- runner :: variables for the rofi and dmenu commands
+- run_on_start_up :: a list of startup applicatons
+
+#+begin_src lua
+
+return {
+    default = {
+        terminal      = terminal,
+        editor        = editor,
+        editor_cmd    = editor_cmd,
+        editor_gui    = editor_gui,
+        browser       = web_browser,
+        filemanager   = file_browser,
+        screen_locker = screen_locker,
+    },
+    runner =  {
+        drun           = drun_cmd,
+        powermenu      = power_cmd,
+        screenshotmenu = screenshot_cmd,
+        passmenu       = pass_cmd
+    },
+    run_on_start_up = {
+        -- 'picom --config ' .. filesystem.get_configuration_dir() .. '/cfg/picom.conf',
+        'light-locker', -- screen locker daemon
+        '/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
+        'pamac-tray', -- update checks
+        'dropbox'
+    }
+}
+#+end_src
+
+#+RESULTS:
