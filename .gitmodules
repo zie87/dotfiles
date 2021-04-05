@@ -7,3 +7,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:zie87/nvim_config.git
+[submodule ".config/awesome"]
+	path = .config/awesome
+	url = git@github.com:zie87/awesomewm_config.git
