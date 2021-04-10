@@ -1,3 +1,8 @@
+# dot organisation
+.dfcfg
+.gitconfig
+
+# default folder
 Downloads
 Dropbox
 Games
@@ -11,51 +16,68 @@ Videos
 Workspace
 snap
 
-.gnupg
-.ssh
-
-.dfcfg
-.gitconfig
-.password-store
-
+# package manager
 .java
 .mono
 .cargo
 .rustup
 .cache
 .luarocks
-.mozilla
 .npm
 .m2
 
-.dropbox-dist
-.dropbox
-
-.dir_colors
-.dmrc
-
-.wine
-.renpy
-.forge/forge.log
-.forge/achievements
-.forge/preferences
-
-.config/manjaro-hello.json
-.config/manjaro.subversion
-.config/manjaro
-
-.emacs.d
-.oh-my-zsh
-
+# history
+.zlua
 .bash_history
 .zsh_history
 .zhistory
 .python_history
 .zcompdump*
 
+# games
+.wine
+.wine32
+.scummvm
+.s25rttr
+.renpy
+.forge/forge.log
+.forge/achievements
+.forge/preferences
+.config/gzdoom/
+
+
+# keys
+.password-store
+.gnupg
+.ssh
+
+# 3rd party
+.emacs.d
+.oh-my-zsh
+
+# caches
+.vscode-oss/
+.vscode/
+
+# other
+.librewolf
+.mozilla
+.dropbox-dist
+.dropbox
+
+.dir_colors
+.dmrc
+
+.config/manjaro-hello.json
+.config/manjaro.subversion
+.config/manjaro
+
 .pki
 .nv
 .hplip
+.config/nwjs/
+
+.wget-hsts
 
 .Xauthority
 .ICEauthority
@@ -64,3 +86,5 @@ __pycache__
 .xsession-errors*
 
 .var
+
+

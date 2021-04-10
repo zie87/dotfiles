@@ -1,7 +1,7 @@
 [Default Applications]
 application/octet-stream=mousepad.desktop
 application/pdf=qpdfview.desktop
-application/pdf=qpdfview.desktop
+application/pdf=atril.desktop
 application/x-gettext-translation=mousepad.desktop
 application/xml=mousepad.desktop
 application/x-wine-extension-ini=mousepad.desktop
@@ -43,3 +43,6 @@ application/vnd.mozilla.xul+xml=code_code.desktop;
 application/xhtml+xml=firefox.desktop;
 image/png=ristretto.desktop;
 image/jpeg=ristretto.desktop;
+application/json=code-oss.desktop;nvim.desktop;
+text/html=code-oss.desktop;
+application/pdf=atril.desktop;
