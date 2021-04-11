@@ -23,19 +23,24 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
+## Page UP and Page Down through History
+autoload -Uz history-search-end
 
-bindkey "^p" up-line-or-beginning-search # Up
-bindkey "^n" down-line-or-beginning-search # Down
+zle -N history-beginning-search-backward-end \
+                history-search-end
+zle -N history-beginning-search-forward-end \
+                history-search-end
+bindkey "$key[Up]" history-beginning-search-backward-end
+bindkey "$key[Down]" history-beginning-search-forward-end
+
+bindkey '^?' backward-delete-char
 
 #######################################################
 # PLUGINS
 # #####################################################
 source "${ZSH_DOT_DIR}/plugin_functions"
 
+zsh_add_plugin "skywind3000/z.lua"
 #######################################################
 # EXPORTS
 # #####################################################
@@ -45,7 +50,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export GOHOME="${HOME}/.go"
 export GOPATH="${HOME}/.go"
-export PATH=${HOME}/.luarocks/bin:${GOPATH}/.bin:$PATH
+export PATH=${HOME}/.luarocks/bin:${GOPATH}/.bin:${HOME}/.local/bin:$PATH
 
 #######################################################
 # ALIAS
