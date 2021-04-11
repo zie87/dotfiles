@@ -31,11 +31,14 @@ zle -N down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search # Up
 bindkey "^n" down-line-or-beginning-search # Down
 
-# plugins
+#######################################################
+# PLUGINS
+# #####################################################
 source "${ZSH_DOT_DIR}/plugin_functions"
 
-# exports
-
+#######################################################
+# EXPORTS
+# #####################################################
 export EDITOR='nvim'
 # bat as a manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -44,10 +47,26 @@ export GOHOME="${HOME}/.go"
 export GOPATH="${HOME}/.go"
 export PATH=${HOME}/.luarocks/bin:${GOPATH}/.bin:$PATH
 
-# alias
+#######################################################
+# ALIAS
+# #####################################################
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias ls="ls --color"
+alias la="ls --color -A"
+alias ll="ls --color -al"
+
 alias els="exa --icons"
 alias ell="exa --icons --long --header --git --git-ignore"
 alias ela="exa --icons --long --header --git --all"
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 alias vim="nvim"
 alias zshconfig="${EDITOR} ~/.zshrc"
@@ -57,5 +76,8 @@ alias whatigot="pacman -Qqe"
 # for dotfile management
 alias dfcfg='/usr/bin/git --git-dir=$HOME/.dfcfg/ --work-tree=$HOME'
 
-# prompt
- eval "$(starship init zsh)"
+#######################################################
+# PROMPT
+# #####################################################
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+eval "$(starship init zsh)"
