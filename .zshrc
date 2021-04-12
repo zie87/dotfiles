@@ -31,8 +31,18 @@ zle -N history-beginning-search-backward-end \
 zle -N history-beginning-search-forward-end \
                 history-search-end
 
-bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end
+if (( ${+key[Up]} )); then
+    bindkey "$key[Up]" history-beginning-search-backward-end
+else
+    bindkey '^[[A' history-beginning-search-backward-end
+fi
+
+
+if (( ${+key[Down]} )); then
+    bindkey "$key[Down]" history-beginning-search-forward-end
+else
+    bindkey '^[[B' history-beginning-search-forward-end
+fi
 
 bindkey '^?' backward-delete-char
 
