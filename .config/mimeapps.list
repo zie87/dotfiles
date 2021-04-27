@@ -3,7 +3,7 @@ application/octet-stream=mousepad.desktop
 application/pdf=qpdfview.desktop
 application/pdf=atril.desktop
 application/x-gettext-translation=mousepad.desktop
-application/xml=mousepad.desktop
+application/xml=neovide.desktop
 application/x-wine-extension-ini=mousepad.desktop
 image/gif=viewnior.desktop;gimp.desktop
 image/gif=viewnior.desktop;gimp.desktop
@@ -27,6 +27,12 @@ application/sieve=code_code.desktop
 application/smil+xml=code_code.desktop
 application/vnd.mozilla.xul+xml=code_code.desktop
 application/xhtml+xml=firefox.desktop
+x-scheme-handler/discord-712465656758665259=discord-712465656758665259.desktop
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
 
 [Added Associations]
 text/plain=emacs.desktop;nvim.desktop;code_code.desktop;
@@ -46,3 +52,4 @@ image/jpeg=ristretto.desktop;
 application/json=code-oss.desktop;nvim.desktop;
 text/html=code-oss.desktop;
 application/pdf=atril.desktop;
+application/xml=neovide.desktop;

@@ -3,6 +3,7 @@
 .gitconfig
 
 # default folder
+Desktop
 Downloads
 Dropbox
 Games
@@ -17,14 +18,21 @@ Workspace
 snap
 
 # package manager
+.go
+.conan
 .java
+.nuget
 .mono
+.config/mono.addins
 .cargo
 .rustup
 .cache
 .luarocks
 .npm
 .m2
+.yarnrc
+.yarn
+.config/yarn/
 
 # history
 .zlua
@@ -33,6 +41,7 @@ snap
 .zhistory
 .python_history
 .zcompdump*
+.recently-used
 
 # games
 .wine
@@ -40,11 +49,15 @@ snap
 .scummvm
 .s25rttr
 .renpy
+.steam/
+.steampath
+.steampid
+.stratagus/
 .forge/forge.log
 .forge/achievements
 .forge/preferences
 .config/gzdoom/
-
+.fheroes2/
 
 # keys
 .password-store
