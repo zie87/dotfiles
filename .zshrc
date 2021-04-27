@@ -61,7 +61,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export GOHOME="${HOME}/.go"
 export GOPATH="${HOME}/.go"
-export PATH=${HOME}/.luarocks/bin:${GOPATH}/.bin:${HOME}/.local/bin:$PATH
+export PATH=${HOME}/.luarocks/bin:${HOME}/.yarn/bin:${GOPATH}/.bin:${HOME}/.local/bin:$PATH
 
 #######################################################
 # ALIAS
