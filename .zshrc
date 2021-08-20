@@ -52,6 +52,24 @@ bindkey '^?' backward-delete-char
 source "${ZSH_DOT_DIR}/plugin_functions"
 
 zsh_add_plugin "skywind3000/z.lua"
+
+
+#######################################################
+# FUNCTIONS
+# #####################################################
+
+vimwiki () {
+    if [[ $# == 0 ]]
+    then
+        nvim +'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/Documents/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
+}
+
 #######################################################
 # EXPORTS
 # #####################################################
