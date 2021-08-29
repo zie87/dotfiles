@@ -14,12 +14,12 @@ setopt EXTENDED_HISTORY  # record command start time
 
 # some generic options
 stty stop undef		# Disable ctrl-s to freeze terminal.
-setopt extendedglob nomatch menucomplete
+setopt extendedglob nomatch menucomplete no_list_ambiguous
 setopt interactive_comments
 
 # completions
 autoload -Uz compinit
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select 
 zmodload zsh/complist
 compinit
 
